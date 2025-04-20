@@ -1,3 +1,8 @@
 # Reverse String
 input_str = 'Python'
-main_str = 'Krishna'
+reversed_str = ""
+
+for char in input_str:
+    reversed_str = char + reversed_str
+
+print(reversed_str)
