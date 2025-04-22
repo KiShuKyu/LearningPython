@@ -1,12 +1,14 @@
-# Encapsulation ()
+# Polymorphism ( multtiple types dharan kr ske)
 class Car:
-    # __brand ka mtlb h ki vo aabh private ho chuka h sirf class ke andr acess ho jaega lekin object call krega ttoh acess nhi hoega toh make it acessable
     def __init__(self, brand, model):
         self.__brand = brand
         self.model = model
 
-    def get_brand(self):  # this Getter
+    def get_brand(self):
         return self.__brand + "!"
+
+    def fuel_type(self):
+        return "Petrol or Diesel"
 
 
 class ElectricCar(Car):
@@ -17,8 +19,13 @@ class ElectricCar(Car):
     def full_name(self):
         return f"{self.__brand} {self.model} {self.battery_size}"
 
+    def fuel_type(self):
+        return "Electric Charge"
+
 
 my_car = ElectricCar("Tesla", "Rawr", "10m")
 print(my_car.model)
-# print(my_car.full_name())
-print(my_car.get_brand())
+print(my_car.fuel_type())
+
+safari = Car("Tata", "Safari")
+print(safari.fuel_type())
