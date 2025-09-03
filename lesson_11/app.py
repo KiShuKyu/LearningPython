@@ -1,22 +1,29 @@
+# Youtube Video manager sqlite3
 import sqlite3
 
-conn = sqlite3.connect('youtube_videos.db')
+conn = sqlite3.connect("youtube_videos.db")  # con = connect
+# cursor = cursor (ye data base se directly baat kr sakta h query ki form me)
+
 
 cursor = conn.cursor()
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS videos(
             id INTEGER PRIMARY KEY,
-            name TEXT NOT NULL, 
-            time TEXT NOT NULL 
+            name TEXT NOT NULL,
+            time TEXT NOT NULL
     )
                ''')
 
 
 def list_vds():
     cursor.execute("SELECT * FROM videos")
-    for row in cursor.fetchall():
-        print(row)
+    rows = cursor.fetchall()
+    if not rows:
+        print("No Video to show")
+    else:
+        for row in rows:  # we can use either fetchall or fetchone
+            print(row)
 
 
 def add_vds(name, time):
@@ -32,6 +39,7 @@ def update_vds(video_id, new_name, new_time):
 
 
 def delete_vds(video_id):
+    # value tuple milte h single h tabh bhi tuple h
     cursor.execute("DELETE FROM videos WHERE id = ?", (video_id,))
     conn.commit()
 
@@ -65,7 +73,7 @@ def main():
         else:
             print("Invalid Choice.")
 
-    conn.close()
+    conn.close()  # good to close connect db corrupt chances slims
 
 
 if __name__ == "__main__":
