@@ -1,5 +1,5 @@
 # Python calcutator
-
+#Krishna Bhai isse teen numbers ke liye bnao naa !!
 
 operator = input("Enter the operator you want to use (+ - * /)")
 num1 = float(input("Enter the 1st number:"))
