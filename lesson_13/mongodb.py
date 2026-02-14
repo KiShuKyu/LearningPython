@@ -3,8 +3,7 @@ from pymongo import MongoClient
 from bson import ObjectId
 
 
-client = MongoClient(
-    "mongodb+srv://zoloronoloa:pass@lesson.idrdxzg.mongodb.net/", tlsAllowInvalidCertificates=True)
+client = MongoClient() ## changed 
 
 print(client)
 db = client["ytmanager"]
